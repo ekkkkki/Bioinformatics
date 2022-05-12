@@ -4,10 +4,17 @@ import numpy as np
 import pandas as pd
 
 parser = argparse.ArgumentParser()  
-parser.add_argument('-filename',type = str)
-parser.add_argument('-local',action = "store_true", default = False)
-parser.add_argument('-score',type = str)
-parser.add_argument('-d',type = int, default= 8)
+parser.add_argument('-filename',type = str) #file with 2 sequences in 2 line
+parser.add_argument('-local',action = "store_true", default = False) #-local for local alignment
+parser.add_argument('-score',type = str) #matrix file name
+parser.add_argument('-d',type = int, default= 8) # gap penalty, default = 8
+
+'''sample:
+SW.py -filename seq.txt -score score.txt -d 8 -local 
+AWGHE
+AW-HE
+'''
+
 args = parser.parse_args()
 
 def NW(S1,S2,m,n):
